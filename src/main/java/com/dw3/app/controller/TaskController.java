@@ -28,7 +28,7 @@ public class TaskController {
 	
 	@CrossOrigin("http://localhost:4200/")
 	@PostMapping("/addtask")
-	  Task newEmployee(@RequestBody Task task) {
+	  Task newTask(@RequestBody Task task) {
 	    return repository.save(task);
 	  }
 	
@@ -48,7 +48,7 @@ public class TaskController {
 	
 	@CrossOrigin(origins="http://localhost:4200/")
 	@PutMapping("/task/{id}")
-	  Task replaceEmployee(@RequestBody Task newTask, @PathVariable Long id) {
+	  Task updateTask(@RequestBody Task newTask, @PathVariable Long id) {
 
 	    return repository.findById(id)
 	      .map(task -> {
@@ -65,7 +65,7 @@ public class TaskController {
 	
 	@CrossOrigin("http://localhost:4200/")
 	 @DeleteMapping("/task/{id}")
-	  void deleteEmployee(@PathVariable Long id) {
+	  void deleteTask(@PathVariable Long id) {
 	    repository.deleteById(id);
 	  }
 
